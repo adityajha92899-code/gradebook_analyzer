@@ -94,7 +94,7 @@ while True:
 
     # Table Output 
     print("\nName\tMarks\tGrade")
-    print("------------------------------")
+    print("-----")
     for name in marks:
         print(f"{name}\t{marks[name]}\t{grades[name]}")
 
@@ -102,4 +102,5 @@ while True:
     run = input("\nRun again? (y/n): ")
     if run.lower() == "n":
         break
+
 
