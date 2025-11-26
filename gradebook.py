@@ -32,7 +32,7 @@ while True:
 
     marks = {}
 
-    # ---------------- Manual Entry ------------------
+    #  Manual Entry 
     if choice == 1:
         count = int(input("How many students? "))
         for i in range(count):
@@ -40,12 +40,12 @@ while True:
             score = int(input("Enter marks: "))
             marks[name] = score
 
-    # ---------------- CSV Entry ---------------------
+    #  CSV Entry 
     elif choice == 2:
         filename = input("Enter CSV filename: ")
         with open(filename, "r") as file:
             reader = csv.reader(file)
-            next(reader)        # skip header if present
+            next(reader)       
             for row in reader:
                 name = row[0]
                 score = int(row[1])
@@ -56,7 +56,7 @@ while True:
         continue
 
 
-    # --------------- Grade Assignment -----------------
+    #  Grade Assignment 
     grades = {}
 
     for name, score in marks.items():
@@ -71,7 +71,7 @@ while True:
         else:
             grades[name] = "F"
 
-    # --------------- Grade Distribution -----------------
+    #  Grade Distribution 
     count_A = list(grades.values()).count("A")
     count_B = list(grades.values()).count("B")
     count_C = list(grades.values()).count("C")
@@ -85,20 +85,21 @@ while True:
     print("D:", count_D)
     print("F:", count_F)
 
-    # ---------------- Pass / Fail Lists -----------------
+    #  Pass / Fail Lists 
     passed_students = [name for name, score in marks.items() if score >= 40]
     failed_students = [name for name, score in marks.items() if score < 40]
 
     print("\nPassed Students:", passed_students)
     print("Failed Students:", failed_students)
 
-    # ---------------- Table Output ----------------------
+    # Table Output 
     print("\nName\tMarks\tGrade")
     print("------------------------------")
     for name in marks:
         print(f"{name}\t{marks[name]}\t{grades[name]}")
 
-    # ---------------- Ask to Run Again -------------------
+    # Ask to Run Again 
     run = input("\nRun again? (y/n): ")
     if run.lower() == "n":
         break
+
